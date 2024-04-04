@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customizable Border Text</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .border-container {
+        padding: 20px;
+        margin: 50px auto;
+        display: inline-block;
+        border: 2px solid black;
+        background-color: #ffffff;
+    }
+    .border-text {
+        font-size: 24px;
+        color: black;
+    }
+</style>
+</head>
+<body>
+
+<div class="border-container" id="borderContainer">
+    <p class="border-text" id="borderText">Sample Text</p>
+</div>
+
+<div>
+    <label for="borderRed">Border Red (0-255):</label>
+    <input type="number" id="borderRed" min="0" max="255">
+</div>
+
+<div>
+    <label for="borderGreen">Border Green (0-255):</label>
+    <input type="number" id="borderGreen" min="0" max="255">
+</div>
+
+<div>
+    <label for="borderBlue">Border Blue (0-255):</label>
+    <input type="number" id="borderBlue" min="0" max="255">
+</div>
+
+<div>
+    <label for="backgroundRed">Background Red (0-255):</label>
+    <input type="number" id="backgroundRed" min="0" max="255">
+</div>
+
+<div>
+    <label for="backgroundGreen">Background Green (0-255):</label>
+    <input type="number" id="backgroundGreen" min="0" max="255">
+</div>
+
+<div>
+    <label for="backgroundBlue">Background Blue (0-255):</label>
+    <input type="number" id="backgroundBlue" min="0" max="255">
+</div>
+
+<div>
+    <label for="borderWidth">Border Width (px):</label>
+    <input type="number" id="borderWidth">
+</div>
+
+<button onclick="applyStyles()">Apply</button>
+
+<script>
+    function applyStyles() {
+        const borderRed = document.getElementById('borderRed').value;
+        const borderGreen = document.getElementById('borderGreen').value;
+        const borderBlue = document.getElementById('borderBlue').value;
+        const backgroundRed = document.getElementById('backgroundRed').value;
+        const backgroundGreen = document.getElementById('backgroundGreen').value;
+        const backgroundBlue = document.getElementById('backgroundBlue').value;
+        const borderWidth = document.getElementById('borderWidth').value;
+
+        const borderContainer = document.getElementById('borderContainer');
+        borderContainer.style.borderColor = `rgb(${borderRed},${borderGreen},${borderBlue})`;
+        borderContainer.style.backgroundColor = `rgb(${backgroundRed},${backgroundGreen},${backgroundBlue})`;
+        borderContainer.style.borderWidth = `${borderWidth}px`;
+
+        const borderText = document.getElementById('borderText');
+        borderText.style.color = `rgb(${borderRed},${borderGreen},${borderBlue})`;
+    }
+</script>
+
+</body>
+</html>
